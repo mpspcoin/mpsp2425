@@ -11,8 +11,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.2/united/bootstrap.min.css" integrity="sha512-K7slJiS9xNJpev8NgMlUlF0XrIoGFx0GCgH2eKadDu72vwfe3Hd6ETVQQJEuD5hm2ssyD16EbvLkCeTL87ngeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script>
 async function getResult() {
-  let codeValue = document.getElementById("code").value;
-let motherName = document.getElementById("mother").value;
+  let codeValue = document.getElementById("code").value.toUpperCase();
+let motherName = document.getElementById("mother").value.toUpperCase();
+if(!codeValue && !motherName) return;
+
 let res = null;
 try {
     let response = await fetch(`res/${codeValue}.${motherName}.json`);
